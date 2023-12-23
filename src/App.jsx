@@ -1,5 +1,6 @@
 import { useState,useEffect } from 'react'
-
+import weatherService from './services/weather'
+import DisplayWeather from './components/displayWeather'
 function App() {
   const [locanto, setLocanto] = useState({})
   const options = {
@@ -27,8 +28,7 @@ function App() {
   return (
     <>
     hello
-    {locanto.longitude}
-    {locanto.latitude}
+    <DisplayWeather lati={locanto.latitude} long={locanto.longitude}/>
     </>
   )
 }
