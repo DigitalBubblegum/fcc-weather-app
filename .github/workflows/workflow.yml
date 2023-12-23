@@ -17,8 +17,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install and Build
-        run: npm install && vite build
+      - name: Install
+        run: npm install
+
+      - name: Vite Build
+        run: vite build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.3
