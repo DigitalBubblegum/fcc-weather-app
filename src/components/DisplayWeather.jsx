@@ -9,9 +9,10 @@ const DisplayWeather = ({lati,long,result}) => {
     }
     else{
         return(
-        <div className='text-center mt-6'>
+        <div className='text-center mt-6 py-7'>
+            <h3 className='text-xl text-indigo-500 font-semibold py-8'>{result.weather[0].description}</h3>
             <div className='w-24 p-8 bg-indigo-400 mx-auto rounded-3xl'>
-                <img src = {result.weather[0].icon} alt={result.weather[0].description} className="scale-150"></img>
+                <img src = {result.weather[0].icon} alt={result.weather[0].main} className="scale-150"></img>
             </div>
             <h2>Our system detects that your approximate location is <span className='text-xl text-indigo-500 font-semibold'>{result.name}</span></h2>
             With Latitude: <span className='text-xl text-indigo-500 font-semibold'>{lati}</span>
