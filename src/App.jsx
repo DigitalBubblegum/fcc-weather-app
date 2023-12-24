@@ -1,7 +1,6 @@
 import { useState,useEffect } from 'react'
 import { useWeather } from "./hooks/hook";
 import DisplayWeather from './components/DisplayWeather'
-import weather from './services/weather';
 function App() {
   const [locanto, setLocanto] = useState({})
   const options = {
@@ -23,14 +22,14 @@ function App() {
   }
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success, error, options)
-    console.log(locanto)
+    console.log('location useEffect',locanto)
   }, [])
   const weather = useWeather(locanto.latitude,locanto.longitude)
   console.log('got weather from hook',weather)
   // const result = 'random'
   return (
-    <div>
-      <h1>Weather App</h1>
+    <div className='bg-grey-100'>
+      <h1 className='px-8 py-12 text-center text-3xl font-bold text-indigo-500'>Weather <span className='text-black'>App</span></h1>
     <DisplayWeather lati={locanto.latitude} long={locanto.longitude} result={weather}/>
     </div>
   )
