@@ -20,7 +20,7 @@ const DisplayWeather = ({lati,long,result}) => {
             <br/>
             <br/>
             <h2>Here is your local weather information</h2>
-            <span className='text-xl text-indigo-500 font-semibold'>{result.main.feels_like}</span>
+            Your temperature is an estimaded <span className='text-xl text-indigo-500 font-semibold'>{result.main.feels_like}</span>
             <br/>
             with a current estimated max of <span className='text-xl text-indigo-500 font-medium'>{result.main.temp_max}</span> and min of <span className='text-xl text-indigo-500 font-medium'>{result.main.temp_min}</span>
             <br/>
