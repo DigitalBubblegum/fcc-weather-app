@@ -1,5 +1,4 @@
-const DisplayWeather = ({lati,long,result}) => {
-    console.log('result',result)
+const DisplayWeather = ({lati,long,result,viewFaren}) => {
     if(!lati || !long || !result){
         return(
         <div className='text-center'>
@@ -21,10 +20,20 @@ const DisplayWeather = ({lati,long,result}) => {
             <br/>
             <br/>
             <h2>Here is your local weather information</h2>
-            Your temperature is an estimaded <span className='text-xl text-indigo-500 font-semibold'>{result.main.feels_like}</span>
+            {!viewFaren?
+            <div>
+                Your temperature is an estimaded <span className='text-xl text-indigo-500 font-semibold'>{result.main.feels_like}</span>
             <br/>
             with a current estimated max of <span className='text-xl text-indigo-500 font-medium'>{result.main.temp_max}</span> and min of <span className='text-xl text-indigo-500 font-medium'>{result.main.temp_min}</span>
             <br/>
+            </div>:
+            <div>
+                Your temperature is an estimaded <span className='text-xl text-indigo-500 font-semibold'>{((result.main.feels_like)*(9/5)+32).toFixed(2)}</span>
+            <br/>
+            with a current estimated max of <span className='text-xl text-indigo-500 font-medium'>{((result.main.temp_max)*(9/5)+32).toFixed(2)}</span> and min of <span className='text-xl text-indigo-500 font-medium'>{(result.main.temp_min*(9/5)+32).toFixed(2)}</span>
+            <br/>
+            </div>
+        }
             Humidity is <span className='text-xl text-indigo-500 font-semibold'>{result.main.humidity}</span>
         </div>
     )
