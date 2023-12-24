@@ -1,6 +1,7 @@
 import { useState,useEffect } from 'react'
-// import weatherService from './services/weather'
-// import DisplayWeather from './components/displayWeather'
+import { useWeather } from "./hooks/hook";
+import DisplayWeather from './components/DisplayWeather'
+import weather from './services/weather';
 function App() {
   const [locanto, setLocanto] = useState({})
   const options = {
@@ -24,12 +25,14 @@ function App() {
     navigator.geolocation.getCurrentPosition(success, error, options)
     console.log(locanto)
   }, [])
-  
+  const weather = useWeather(locanto.latitude,locanto.longitude)
+  console.log('got weather from hook',weather)
+  // const result = 'random'
   return (
-    <>
-    hello
-    {/* <DisplayWeather lati={locanto.latitude} long={locanto.longitude}/> */}
-    </>
+    <div>
+      <h1>Weather App</h1>
+    <DisplayWeather lati={locanto.latitude} long={locanto.longitude} result={weather}/>
+    </div>
   )
 }
 
