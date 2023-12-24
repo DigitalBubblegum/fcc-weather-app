@@ -1,5 +1,7 @@
 # Weather App based on the take home project from Freecodecamp.
 
+This is my repo for a simple weather app made with React and TailwindCSS.
+
 ## Build an app that fulfills the below user stories 
 
 - [x]  I can see the weather in my current location.
